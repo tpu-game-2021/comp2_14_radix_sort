@@ -16,7 +16,7 @@ bool radix_sort(item* begin, const item* end)
 	item* tmp;
 	bucket = (int*)malloc((sizeof(int) * (end - begin)));
 	tmp = (item*)malloc(sizeof(item) * (end - begin));
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 4; i++)							//256進数であればint型は4回で完了
 	{
 		for (j = 0; j < end - begin; j++)
 		{
@@ -30,11 +30,11 @@ bool radix_sort(item* begin, const item* end)
 			}
 			if (l == end - begin)break;
 		}
-		for (j = 0; j < end - begin; j++)
+		for (j = 0; j < end - begin; j++)			//元のデータに反映させる。
 		{
 			begin[j] = tmp[j];
 		}
-		digit *= 256;
+		digit *= 256;								//参照する桁を上げる
 	}
 	free(bucket);
 	free(tmp);
