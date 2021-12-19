@@ -14,9 +14,9 @@ bool radix_sort(item* begin, const item* end)
 	int digit=1;
 	int* bucket;
 	item* tmp;
-	bucket = (int*)malloc((sizeof(int) * (end - begin)));
-	tmp = (item*)malloc(sizeof(item) * (end - begin));
-	for (i = 0; i < 4; i++)							//256進数であればint型は4回で完了
+	bucket =/* (int*)*/malloc((sizeof(int) * (end - begin)));
+	tmp = /*(item*)*/malloc(sizeof(item) * (end - begin));
+	for (i = 0; i < 4; i++)
 	{
 		for (j = 0; j < end - begin; j++)
 		{
