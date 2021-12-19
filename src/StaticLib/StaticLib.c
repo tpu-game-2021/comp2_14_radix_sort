@@ -8,6 +8,12 @@
 // 基数は256で実装せよ
 bool radix_sort(item* begin, const item* end)
 {
+	if (begin == NULL || end == NULL) return false;
+	if (end < begin)  return false;
+
+	int radix = 256; //バケツの数 基数
+	int tnum = (end - begin);
+
 	// ToDo: 基数ソートを実装する
 	return false;
 }
