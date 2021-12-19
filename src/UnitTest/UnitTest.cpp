@@ -1,8 +1,8 @@
 ﻿#include "pch.h"
 #include <chrono>
+#include "../include/lib_func.h"
 #include <random>
 #include "CppUnitTest.h"
-#include "../include/lib_func.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
