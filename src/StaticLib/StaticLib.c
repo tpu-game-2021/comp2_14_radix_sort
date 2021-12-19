@@ -9,5 +9,12 @@
 bool radix_sort(item* begin, const item* end)
 {
 	// ToDo: 基数ソートを実装する
-	return false;
+	if(begin == NULL || end == NULL)
+		return false;
+
+	if (end < begin)
+		return false;
+
+	if (end - begin == 1)
+		return true;
 }
