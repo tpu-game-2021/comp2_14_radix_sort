@@ -8,6 +8,18 @@
 // 基数は256で実装せよ
 bool radix_sort(item* begin, const item* end)
 {
+     item items[100];
+    for (int d = 0, r = 1; d < 5; d++, r *= 10)
+    {
+        for (int i = 0; i < begin->key; i++)
+        {
+            
+        }
+        if (begin == NULL || end == NULL)
+        {
+            return false;
+        }
+    }
 	// ToDo: 基数ソートを実装する
-	return false;
+	
 }
