@@ -8,6 +8,35 @@
 // 基数は256で実装せよ
 bool radix_sort(item* begin, const item* end)
 {
-	// ToDo: 基数ソートを実装する
-	return false;
+	if (end - begin < 0)return false;
+	if (begin == NULL || end == NULL)return false;
+	int i, j, k,l;
+	int digit=1;
+	int* bucket;
+	item* tmp;
+	bucket = (int*)malloc((sizeof(int) * (end - begin)));
+	tmp = (item*)malloc(sizeof(item) * (end - begin));
+	for (i = 0; i < 4; i++)
+	{
+		for (j = 0; j < end - begin; j++)
+		{
+			bucket[j] = (begin[j].key/ digit) % 256;//256進数での桁を参照するための配列を作成
+		}
+		l = 0;
+		for (j = 0; j < 256; j++){					//作った配列を参考にソートするデータを並び替え
+			for (k = 0; k < end - begin; k++){
+				if (bucket[k] == j)
+					tmp[l++] = begin[k];
+			}
+			if (l == end - begin)break;
+		}
+		for (j = 0; j < end - begin; j++)
+		{
+			begin[j] = tmp[j];
+		}
+		digit *= 256;
+	}
+	free(bucket);
+	free(tmp);
+	return true;
 }
