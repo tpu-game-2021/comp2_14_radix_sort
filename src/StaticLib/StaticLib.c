@@ -18,13 +18,14 @@ int find_max(item* begin, const item* end,const int radix)
 	for (int i = 0; i < elements; i++) {
 		max = begin[i].key > max ? begin[i].key : max;
 	}
-	return (int)(log10(max)/log10(radix)+1);
+	return (int)(log10(max)/log10(radix));
 }
 
 bool radix_sort(item* begin, const item* end)
 {
 	// ToDo: 基数ソートを実装する
 	if (begin == NULL || end == NULL || end < begin)return false;
+
 	const int radix = 256;//基数
 	int max = find_max(begin, end, radix);//最大値の桁数
 	int digits = 0;//桁数
@@ -38,13 +39,13 @@ bool radix_sort(item* begin, const item* end)
 		}
 		int k = 0;//添え字
 		for (int i = 0; i < radix; i++) {
-			for (int j = 0; j < radix; j++) {
+			for (int j = 0; j < elements; j++) {
 				if (rad[j].key == i) {
 					temp[k++] = begin[j];//基数の小さいものからtempにコピー
 				}
 			}
 		}
-		for (int i = 0; i < radix; i++) {
+		for (int i = 0; i < elements; i++) {
 			begin[i] = temp[i];//beginにコピー
 		}
 		digits++;
